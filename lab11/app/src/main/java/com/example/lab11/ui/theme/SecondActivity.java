@@ -1,44 +1,43 @@
 package com.example.lab11.ui.theme;
 
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.lab11.R;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends BaseActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        String[] colorNames = getResources().getStringArray(R.array.color_names);
+        Button btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(view -> {
+            // Переход на главную активность
+            Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish(); // Закрываем текущую активность
+        });
+
+        ListView listView = findViewById(R.id.listViewColors);
         int[] colorValues = getResources().getIntArray(R.array.color_values);
+        String[] colorNames = getResources().getStringArray(R.array.color_names);
 
         ColorAdapter adapter = new ColorAdapter(this, colorNames, colorValues);
-        ListView listView = findViewById(R.id.listViewColors);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener((parent, view, position, id) -> {
-            int selectedColor = (int) adapter.getItem(position);
-            SharedPreferences preferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putInt("backgroundColor", selectedColor);
-            editor.apply();
+        // Обработчик щелчка по элементу списка
+        listView.setOnItemClickListener((AdapterView<?> parent, android.view.View view, int position, long id) -> {
+            int selectedColor = colorValues[position];
+            saveBackgroundColor(selectedColor); // Сохраняем цвет в настройки
 
+            // Обновляем фон текущего окна
             getWindow().getDecorView().setBackgroundColor(selectedColor);
+
         });
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        SharedPreferences preferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-        int color = preferences.getInt("backgroundColor", 0xFFFFFFFF); // Белый по умолчанию
-        getWindow().getDecorView().setBackgroundColor(color);
-    }
-
 }

@@ -6,10 +6,27 @@
     android:gravity="center"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/tvSignature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Лифляндский Илья 419/7"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="24dp" />
+
     <Button
         android:id="@+id/btnChooseColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Выберите цвет фона"
-        android:padding="10dp" />
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnOpenThirdActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Открыть третью активность"
+        android:textSize="16sp" />
 </LinearLayout>

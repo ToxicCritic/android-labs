@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Названия цветов -->
     <array name="color_names">
-        <item>Red</item>
-        <item>Green</item>
-        <item>Blue</item>
-        <item>White</item>
+        <item>Crimson</item>
+        <item>Dark Green</item>
+        <item>Sky Blue</item>
+        <item>Lavender</item>
     </array>
+
+    <!-- Значения цветов в ARGB формате -->
     <array name="color_values">
-        <item>#FFFF0000</item>
-        <item>#FF00FF00</item>
-        <item>#FF0000FF</item>
-        <item>#FFFFFFFF</item>
+        <item>#FFDC143C</item> <!-- Crimson -->
+        <item>#FF006400</item> <!-- Dark Green -->
+        <item>#FF87CEEB</item> <!-- Sky Blue -->
+        <item>#FFE6E6FA</item> <!-- Lavender -->
     </array>
 </resources>
