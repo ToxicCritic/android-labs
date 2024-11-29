@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <!-- Заголовок -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Редактировать запись"
+        android:textSize="24sp"
+        android:textColor="@color/colorTextSecondary"
+        android:layout_marginBottom="24dp"
+        android:textStyle="bold" />
+
+    <!-- Многострочное EditText -->
+    <EditText
+        android:id="@+id/editText"
+        style="@style/EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:inputType="textMultiLine"
+        android:hint="Введите текст"
+        android:gravity="top|start"/>
+
+    <!-- Кнопки OK и Cancel -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/btnOK"
+            style="@style/ButtonStyle"
+            android:text="OK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:onClick="onOkClicked" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/ButtonStyle"
+            android:text="Отменить"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCancelClicked"
+            android:layout_marginLeft="16dp" />
+    </LinearLayout>
+
+</LinearLayout>
